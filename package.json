@@ -1,0 +1,25 @@
+{
+  "name": "gulpfiles",
+  "version": "0.0.1",
+  "description": "gulp setting file templates for TSUMIKI INC.",
+  "repository": {
+    "type" : "git",
+    "url" : "http://github.com/tsumikiinc/gulpfiles.git"
+  },
+  "private": true,
+  "scripts": {
+    "start": "gulp",
+    "build": "gulp build"
+  },
+  "engines": {
+    "node": "0.12.x"
+  },
+  "author": "TSUMIKI Coding team",
+  "license": "MIT",
+  "projectConfig": {
+    "PATH": "path/this/project",
+    "BUILD": "build",
+    "DST": "dst",
+    "SRC": "src"
+  }
+}
