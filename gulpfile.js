@@ -33,6 +33,7 @@ gulp.task('start', function(cb) {
       'stylus'/* or 'sass' */,
       'browserify'
     ],
+    'watchify',
     'serve',
     cb
   );
@@ -41,10 +42,12 @@ gulp.task('start', function(cb) {
 // 作業開始
 // ファイルの変更監視で対象タスク実行とブラウザのオートリロード
 gulp.task('default', ['start'], function() {
-  gulp.watch(['./' + CONFIG.SRC + '/**/*.coffee'], ['browserify', reload]);
   gulp.watch(['./' + CONFIG.SRC + '/**/*.jade'], ['jade', reload]);
   gulp.watch(['./' + CONFIG.SRC + '/**/*.styl'], ['stylus', reload]);
-  gulp.watch(['./' + CONFIG.SRC + '/**/*.{scss,sass}'], ['sass', reload]);
+  // or ↓
+  // gulp.watch(['./' + CONFIG.SRC + '/**/*.{scss,sass}'], ['sass', reload]);
+
+  gulp.watch(['./' + CONFIG.DST + '/**/*.js'], reload);
 });
 
 // ビルド
@@ -55,7 +58,7 @@ gulp.task('build', function(cb) {
     'clean',
     [
       'jade',
-      'stylus'
+      'stylus'/* or 'sass' */,
     ],
     'copy',
     [
