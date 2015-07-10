@@ -12,11 +12,5 @@
   },
   "engines": {
     "node": "0.12.x"
-  },
-  "projectConfig": {
-    "PATH": "path/this/project",
-    "BUILD": "build",
-    "DST": "dst",
-    "SRC": "src"
   }
 }
