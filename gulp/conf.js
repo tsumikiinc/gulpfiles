@@ -9,7 +9,7 @@ const D = {
 };
 
 export default {
-  D: D,
+  D,
 
   serve: {
     notify: false,
@@ -17,11 +17,9 @@ export default {
     server: {
       baseDir: './',
       index: `${D.DEST}${D.PATH}/`,
-      routes: (() => {
-        let obj = {};
-        obj[D.PATH] = `${D.DEST}${D.PATH}/`;
-        return obj;
-      })()
+      routes: {
+        [D.PATH]: `${D.DEST}${D.PATH}/`
+      }
     }
   },
 
