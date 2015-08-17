@@ -14,6 +14,7 @@ export default {
   serve: {
     notify: false,
     startPath: D.PATH,
+    ghostMode: false,
     server: {
       baseDir: './',
       index: `${D.DEST}${D.PATH}/`,
