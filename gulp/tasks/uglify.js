@@ -5,9 +5,7 @@ import { uglify as conf } from '../conf';
 
 gulp.task('uglify', () => {
   return gulp.src(conf.src)
-    .pipe(uglify({
-      preserveComments: 'some'
-    }))
+    .pipe(uglify(conf.opts))
     .pipe(rename({
       suffix: '.min'
     }))
