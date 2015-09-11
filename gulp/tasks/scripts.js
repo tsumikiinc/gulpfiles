@@ -9,7 +9,7 @@ import { rename } from '../plugins';
 import { scripts as conf } from '../conf';
 
 const bundler = (entry, isWatch) => {
-  let bOpts = conf.browserifyOpts;
+  const bOpts = conf.browserifyOpts;
   let b;
 
   bOpts.entries = [conf.common, entry]
@@ -24,7 +24,7 @@ const bundler = (entry, isWatch) => {
     b = browserify(bOpts);
   }
 
-  b.plugin(licensify, {scanBrowser: true});
+  b.plugin(licensify);
 
   const bundle = () => {
     return b.bundle()
@@ -49,14 +49,14 @@ const bundler = (entry, isWatch) => {
 };
 
 gulp.task('browserify', () => {
-  let tasks = conf.entryFiles.map(entry => {
+  const tasks = conf.entryFiles.map(entry => {
     return bundler(entry);
   });
   return eventStream.merge.apply(null, tasks);
 });
 
 gulp.task('watchify', () => {
-  let tasks = conf.entryFiles.map(entry => {
+  const tasks = conf.entryFiles.map(entry => {
     return bundler(entry, true);
   });
   return eventStream.merge.apply(null, tasks);
