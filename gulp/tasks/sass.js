@@ -1,9 +1,13 @@
-import gulp from 'gulp';
+const gulp = require('gulp');
 
-import { rubySass } from '../plugins';
-import { sass as conf } from '../conf';
+const $ = require('../plugins');
+const conf = require('../conf').sass;
 
-gulp.task('sass', function() {
-  return rubySass(conf.src, {style: 'compressed'})
+gulp.task('sass', () => {
+  return gulp.src(conf.src)
+    .pipe($.sass().on('error', $.sass.logError))
+    .pipe($.rename(path => {
+      path.dirname = path.dirname.replace('css', '.');
+    }))
     .pipe(gulp.dest(conf.dest));
 });

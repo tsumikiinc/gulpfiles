@@ -1,16 +1,17 @@
-import gulp from 'gulp';
-import requireDir from 'require-dir';
-import runSequence from 'run-sequence';
-import { reload } from 'browser-sync';
+const gulp = require('gulp');
+const requireDir = require('require-dir');
+const runSequence = require('run-sequence');
+const browserSync = require('browser-sync');
+const reload = browserSync.reload;
 
-import { D } from './gulp/conf';
+const DIR = require('./gulp/conf').DIR;
 
 requireDir('./gulp/tasks');
 
 // 'default' タスク実行前に処理しておきたいタスク
 gulp.task('predefault', cb => {
   runSequence(
-    ['jade', 'stylus', 'watchify'],
+    ['jade', 'stylus', 'sass', 'watchify'],
     'serve',
     cb
   );
@@ -19,20 +20,22 @@ gulp.task('predefault', cb => {
 // ファイルの変更監視で対象タスク実行とブラウザのオートリロード
 gulp.task('default', ['predefault'], () => {
   gulp.watch(
-    [`./${D.SRC}/**/*.jade`],
+    [`./${DIR.SRC}/**/*.jade`],
     ['jade', reload]
   );
+
   gulp.watch(
-    [`./${D.SRC}/**/*.styl`],
+    [`./${DIR.SRC}/**/*.styl`],
     ['stylus', reload]
   );
   // または ↓
   // gulp.watch(
-  //   [`./${D.SRC}/**/*.{scss,sass}`],
+  //   [`./${DIR.SRC}/**/*.{scss,sass}`],
   //   ['sass', reload]
   // );
+
   gulp.watch(
-    [`./${D.DEST}/**/*.js`],
+    [`./${DIR.DEST}/**/*.js`],
     reload
   );
 });
@@ -41,9 +44,9 @@ gulp.task('default', ['predefault'], () => {
 gulp.task('build', cb => {
   runSequence(
     'clean',
-    ['jade', 'stylus'],
+    ['jade', 'stylus', 'sass'],
     'copy',
-    ['replace', 'minify-css', 'browserify', 'imagemin'],
+    ['minify-css', 'browserify', 'imagemin'],
     'uglify',
     cb
   );

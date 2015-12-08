@@ -1,15 +1,15 @@
-import gulp from 'gulp';
+const gulp = require('gulp');
 
-import { plumber, notify, ect, rename } from '../plugins';
-import { ect as conf } from '../conf';
+const $ = require('../plugins');
+const conf = require('../conf').ect;
 
-gulp.task('ect', function() {
+gulp.task('ect', () => {
   return gulp.src(conf.src)
-    .pipe(plumber({
-      errorHandler: notify.onError('<%= error.message %>')
+    .pipe($.plumber({
+      errorHandler: $.notify.onError('<%= error.message %>')
     }))
-    .pipe(ect())
-    .pipe(rename(path => {
+    .pipe($.ect())
+    .pipe($.rename(path => {
       path.dirname = path.dirname.replace('html', '.');
     }))
     .pipe(gulp.dest(conf.dest));

@@ -11,6 +11,6 @@
     "build": "gulp build"
   },
   "engines": {
-    "node": "0.12.x"
+    "node": "4.2.x"
   }
 }

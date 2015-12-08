@@ -3,10 +3,10 @@
 gulp setting file templates for TSUMIKI INC.
 
 ```
-npm i -D babel-core babelify browser-sync browserify coffeeify del \
+npm i -D babelify browser-sync browserify del \
   event-stream gulp gulp-ect gulp-imagemin gulp-jade gulp-load-plugins \
   gulp-minify-css gulp-notify gulp-plumber gulp-rename \
-  gulp-replace gulp-ruby-sass gulp-stylus gulp-uglify imagemin-pngquant \
+  gulp-sass gulp-stylus gulp-uglify imagemin-pngquant \
   licensify nib require-dir run-sequence vinyl-source-stream watchify
 ```
 

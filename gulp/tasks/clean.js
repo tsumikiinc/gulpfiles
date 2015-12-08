@@ -1,7 +1,7 @@
-import gulp from 'gulp';
-import del from 'del';
+const gulp = require('gulp');
+const del = require('del');
 
-import { clean as conf } from '../conf';
+const conf = require('../conf').clean;
 
 gulp.task('clean', cb => {
   del(conf.path).then(() => {

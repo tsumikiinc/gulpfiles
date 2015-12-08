@@ -1,12 +1,12 @@
-import gulp from 'gulp';
-import browserify from 'browserify';
-import watchify from 'watchify';
-import licensify from 'licensify';
-import source from 'vinyl-source-stream';
-import eventStream from 'event-stream';
+const gulp = require('gulp');
+const browserify = require('browserify');
+const watchify = require('watchify');
+const licensify = require('licensify');
+const source = require('vinyl-source-stream');
+const eventStream = require('event-stream');
 
-import { rename } from '../plugins';
-import { scripts as conf } from '../conf';
+const $ = require('../plugins');
+const conf = require('../conf').scripts;
 
 const bundler = (entry, isWatch) => {
   const bOpts = conf.browserifyOpts;
@@ -32,7 +32,7 @@ const bundler = (entry, isWatch) => {
         console.log(`bundle error: ${err}`);
       })
       .pipe(source(entry))
-      .pipe(rename({
+      .pipe($.rename({
         dirname: '',
         extname: '.js'
       }))

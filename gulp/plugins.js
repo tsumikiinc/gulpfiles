@@ -1,3 +1,1 @@
-import loadPlugins from 'gulp-load-plugins';
-
-export default loadPlugins();
+module.exports = require('gulp-load-plugins')();
