@@ -2,8 +2,8 @@
   "name": "gulpfiles",
   "description": "gulp setting file templates for TSUMIKI INC.",
   "repository": {
-    "type" : "git",
-    "url" : "http://github.com/tsumikiinc/gulpfiles.git"
+    "type": "git",
+    "url": "https://github.com/tsumikiinc/gulpfiles"
   },
   "private": true,
   "scripts": {
@@ -11,6 +11,6 @@
     "build": "gulp build"
   },
   "engines": {
-    "node": "0.12.x"
+    "node": "6.x"
   }
 }
