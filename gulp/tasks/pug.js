@@ -1,14 +1,14 @@
 import gulp from 'gulp';
 
-import { plumber, notify, jade, rename } from '../plugins';
-import { jade as conf } from '../conf';
+import { plumber, notify, pug, rename } from '../plugins';
+import { pug as conf } from '../conf';
 
-gulp.task('jade', () => {
+gulp.task('pug', () => {
   return gulp.src(conf.src)
     .pipe(plumber({
       errorHandler: notify.onError('<%= error.message %>')
     }))
-    .pipe(jade(conf.opts))
+    .pipe(pug(conf.opts))
     .pipe(rename(path => {
       path.dirname = path.dirname.replace('html', '.');
     }))

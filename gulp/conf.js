@@ -8,11 +8,11 @@ export const D = {
   BUILD: 'build'
 };
 
-export const jade = {
+export const pug = {
   src: [
-    `${D.SRC}/**/*.jade`,
-    `!${D.SRC}/**/_**/*.jade`,
-    `!${D.SRC}/**/_*.jade`
+    `${D.SRC}/**/*.pug`,
+    `!${D.SRC}/**/_**/*.pug`,
+    `!${D.SRC}/**/_*.pug`
   ],
   dest: `${D.DEST}${D.PATH}`,
   opts: {
