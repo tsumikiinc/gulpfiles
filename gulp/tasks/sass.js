@@ -1,9 +1,13 @@
 import gulp from 'gulp';
 
-import { rubySass } from '../plugins';
+import { sass } from '../plugins';
 import { sass as conf } from '../conf';
 
-gulp.task('sass', function() {
-  return rubySass(conf.src, {style: 'compressed'})
+gulp.task('sass', () => {
+  return gulp.src(conf.src)
+    .pipe(sass({
+      outputStyle: 'expanded',
+      includePaths: ['node_modules']
+    }).on('error', sass.logError))
     .pipe(gulp.dest(conf.dest));
 });

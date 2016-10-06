@@ -56,29 +56,11 @@ export const uglify = {
   }
 }
 
-export const ect = {
-  src: [
-    `${D.SRC}/**/*.ect`,
-    `!${D.SRC}/**/_**/*.ect`,
-    `!${D.SRC}/**/_*.ect`
-  ],
-  dest: `${D.DEST}${D.PATH}`
-}
-
-export const stylus = {
-  src: [
-    `${D.SRC}/**/*.styl`,
-    `!${D.SRC}/**/_**/*.styl`,
-    `!${D.SRC}/**/_*.styl`
-  ],
-  dest: `${D.DEST}${D.PATH}/css`
-}
-
 export const sass = {
   src: [
-    `${D.SRC}/**/*.{sass,scss}`,
-    `!${D.SRC}/**/_**/*.{sass,scss}`,
-    `!${D.SRC}/**/_*.{sass,scss}`
+    `${D.SRC}/css/**/*.{sass,scss}`,
+    `!${D.SRC}/css/**/_**/*.{sass,scss}`,
+    `!${D.SRC}/css/**/_*.{sass,scss}`
   ],
   dest: `${D.DEST}${D.PATH}/css`
 }

@@ -10,7 +10,7 @@ requireDir('./gulp/tasks');
 // 'default' タスク実行前に処理しておきたいタスク
 gulp.task('predefault', cb => {
   runSequence(
-    ['pug', 'stylus', 'watchify'],
+    ['pug', 'sass', 'watchify'],
     'serve',
     cb
   );
@@ -23,14 +23,9 @@ gulp.task('default', ['predefault'], () => {
     ['pug', reload]
   );
   gulp.watch(
-    [`./${D.SRC}/**/*.styl`],
-    ['stylus', reload]
+    [`./${D.SRC}/**/*.{scss,sass}`],
+    ['sass', reload]
   );
-  // または ↓
-  // gulp.watch(
-  //   [`./${D.SRC}/**/*.{scss,sass}`],
-  //   ['sass', reload]
-  // );
   gulp.watch(
     [`./${D.DEST}/**/*.js`],
     reload
@@ -41,8 +36,7 @@ gulp.task('default', ['predefault'], () => {
 gulp.task('build', cb => {
   runSequence(
     'clean',
-    ['pug', 'stylus'],
-    'copy',
+    ['pug', 'sass'],
     ['replace', 'minify-css', 'browserify', 'imagemin'],
     'uglify',
     cb
