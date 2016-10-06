@@ -4,7 +4,7 @@ gulp setting file templates for TSUMIKI INC.
 
 ```
 npm i -D babel-core babel-preset-es2015 babelify browser-sync browserify coffeeify del \
-  event-stream gulp gulp-ect gulp-imagemin gulp-pug gulp-load-plugins \
+  event-stream gulp gulp-imagemin gulp-pug gulp-load-plugins \
   gulp-minify-css gulp-notify gulp-plumber gulp-rename \
   gulp-replace gulp-sass gulp-uglify imagemin-pngquant \
   licensify nib require-dir run-sequence vinyl-source-stream watchify
