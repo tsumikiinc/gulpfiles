@@ -36,12 +36,10 @@ export const serve = {
 export const scripts = {
   common: '',
   entryFiles: [
-    `./${D.SRC}/js/main.js`//,
-    // `./${D.SRC}/js/sub.coffee`
+    `./${D.SRC}/js/main.js`
   ],
   browserifyOpts: {
-    extensions: ['.coffee'],
-    transform: ['babelify', 'coffeeify']
+    transform: ['babelify']
   },
   dest: `${D.DEST}${D.PATH}/js`
 }
